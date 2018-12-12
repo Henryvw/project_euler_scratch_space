@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class FibonacciCalculator - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-find_evens">#find_evens</a>
+    
+    <li ><a href="#method-i-generate_below_four_million">#generate_below_four_million</a>
+    
+    <li ><a href="#method-i-generate_using_recursion">#generate_using_recursion</a>
+    
+    <li ><a href="#method-i-recursive_base_case">#recursive_base_case</a>
+    
+    <li ><a href="#method-i-sum_list">#sum_list</a>
+    
+    <li ><a href="#method-i-summed">#summed</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-FibonacciCalculator">
+  <h1 id="class-FibonacciCalculator" class="class">
+    class FibonacciCalculator
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-find_evens" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">find_evens</span><span
+            class="method-args">(list)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="find_evens-source">
+            <pre><span class="ruby-comment"># File euler_2_fibonacci_calculator.rb, line 56</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">find_evens</span>(<span class="ruby-identifier">list</span>)
+  <span class="ruby-identifier">list</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">fib_value</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">fib_value</span> <span class="ruby-operator">%</span> <span class="ruby-value">2</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+      <span class="ruby-constant">EVEN_FIBONACCI_NUMBERS</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">fib_value</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;#{fib_value} aint even, baby!&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-generate_below_four_million" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">generate_below_four_million</span><span
+            class="method-args">(first_fibonacci, second_fibonacci)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="generate_below_four_million-source">
+            <pre><span class="ruby-comment"># File euler_2_fibonacci_calculator.rb, line 9</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">generate_below_four_million</span>(<span class="ruby-identifier">first_fibonacci</span>, <span class="ruby-identifier">second_fibonacci</span>)
+  <span class="ruby-constant">LIST_OF_FIBONACCI_NUMBERS</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">first_fibonacci</span>
+  <span class="ruby-constant">LIST_OF_FIBONACCI_NUMBERS</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">second_fibonacci</span>
+
+  <span class="ruby-identifier">past_sum</span> = <span class="ruby-identifier">first_fibonacci</span>
+  <span class="ruby-identifier">current_sum</span> = <span class="ruby-identifier">second_fibonacci</span>
+
+  <span class="ruby-keyword">while</span> <span class="ruby-identifier">current_sum</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">4000000</span>
+    <span class="ruby-identifier">transition_sum</span> = <span class="ruby-identifier">current_sum</span>
+    <span class="ruby-identifier">current_sum</span> = <span class="ruby-identifier">current_sum</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">past_sum</span>
+    <span class="ruby-identifier">past_sum</span> = <span class="ruby-identifier">transition_sum</span>
+    <span class="ruby-constant">LIST_OF_FIBONACCI_NUMBERS</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">current_sum</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-generate_using_recursion" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">generate_using_recursion</span><span
+            class="method-args">(first_fibonacci, second_fibonacci, limit)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="generate_using_recursion-source">
+            <pre><span class="ruby-comment"># File euler_2_fibonacci_calculator.rb, line 51</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">generate_using_recursion</span>(<span class="ruby-identifier">first_fibonacci</span>, <span class="ruby-identifier">second_fibonacci</span>, <span class="ruby-identifier">limit</span>)
+  <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;LIST OF FIBONACCI NUMBERS Array - last (-1) item: #{LIST_OF_FIBONACCI_NUMBERS[-1]}&quot;</span>
+  <span class="ruby-identifier">recursive_base_case</span>(<span class="ruby-identifier">first_fibonacci</span>, <span class="ruby-identifier">second_fibonacci</span>, <span class="ruby-identifier">limit</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-recursive_base_case" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">recursive_base_case</span><span
+            class="method-args">(first_fibonacci, second_fibonacci, limit)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="recursive_base_case-source">
+            <pre><span class="ruby-comment"># File euler_2_fibonacci_calculator.rb, line 24</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">recursive_base_case</span>(<span class="ruby-identifier">first_fibonacci</span>, <span class="ruby-identifier">second_fibonacci</span>, <span class="ruby-identifier">limit</span>)
+  <span class="ruby-comment">#The problem: is that the array that should be a list of one fibonacci after another, instead gets to the LIMIT, and adds the LAST fibonnaci before the limit to the array OVER and OVER again.</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;First Fibonacci #{first_fibonacci}&quot;</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Second Fibonacci #{second_fibonacci}&quot;</span>
+
+  <span class="ruby-constant">LIST_OF_FIBONACCI_NUMBERS</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">second_fibonacci</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;LIST OF FIBONACCI NUMBERS Array: #{LIST_OF_FIBONACCI_NUMBERS}&quot;</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Second Fibonacci Again #{second_fibonacci}&quot;</span>
+  
+  <span class="ruby-identifier">sum_ie_next_fibonacci</span> = <span class="ruby-identifier">first_fibonacci</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">second_fibonacci</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Sum of 2 Fibonaccis - i.e. the Next fibonacci #{sum_ie_next_fibonacci}&quot;</span> 
+  <span class="ruby-identifier">first_fibonacci</span> = <span class="ruby-identifier">second_fibonacci</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;New First Fibonacci #{first_fibonacci}&quot;</span>
+
+  <span class="ruby-identifier">second_fibonacci</span> = <span class="ruby-identifier">sum_ie_next_fibonacci</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;New Second Fibonacci #{second_fibonacci}&quot;</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;I&#39;m here now - OUTside the While Loop&quot;</span>
+  <span class="ruby-keyword">while</span> <span class="ruby-identifier">sum_ie_next_fibonacci</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">limit</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Sum - ie Next Fibonacci #{sum_ie_next_fibonacci}&quot;</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;LIST OF FIBONACCI NUMBERS Array - last (-1) item: #{LIST_OF_FIBONACCI_NUMBERS[-1]}&quot;</span>
+    <span class="ruby-identifier">recursive_base_case</span>(<span class="ruby-identifier">first_fibonacci</span>, <span class="ruby-identifier">second_fibonacci</span>, <span class="ruby-identifier">limit</span>)
+    <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;I&#39;m here now - INside the While Loop&quot;</span>
+  <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;I&#39;m here now - INside the While Loop&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sum_list" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sum_list</span><span
+            class="method-args">(numbers)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="sum_list-source">
+            <pre><span class="ruby-comment"># File euler_2_fibonacci_calculator.rb, line 66</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">sum_list</span>(<span class="ruby-identifier">numbers</span>)
+  <span class="ruby-ivar">@summed</span> = <span class="ruby-value">0</span>
+  <span class="ruby-identifier">numbers</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">number</span><span class="ruby-operator">|</span>
+    <span class="ruby-ivar">@summed</span> = <span class="ruby-ivar">@summed</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">number</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-summed" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">summed</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="summed-source">
+            <pre><span class="ruby-comment"># File euler_2_fibonacci_calculator.rb, line 5</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">summed</span>
+  <span class="ruby-ivar">@summed</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.0.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
