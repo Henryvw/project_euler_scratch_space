@@ -3,6 +3,7 @@
 #More specifically, how does he compare the (smaller?) arrays to each other? What is he even SEARCHING for -- is it also a Max?
 #How can I compare two arrays to one another? An array looping within another array looping? But then, where do I return those values to?
 #
+require "pry"
 
 list_of_nums = [4,5,6,7,8,9,10,120,5]
 
@@ -13,7 +14,7 @@ def merge(left, right, sort_condition)
   i = 0
   j = 0
   while i < left.length and j < right.length
-    if left[i].length and right[j].length
+    if sort_condition(left[i].length, right[j].length)
       result.append(left[i])
       i += 1
     else
@@ -33,12 +34,18 @@ def divide_conquer_sort(list, sort_condition = lambda { |x,y| x < y })
     return list
     puts list
   else
-    puts "Middle Number Index= ", middle_number_index = (list.length / 2).abs
-    puts "Middle Number Value= ", middle_number = list[middle_number_index]
-    left_number = divide_conquer_sort(list[0..middle_number_index], sort_condition)
-    right_number = divide_conquer_sort(list[middle_number_index..-1], sort_condition)
-    puts "About to merge", left, "and", right
-    return (merge(left_number, right_number, sort_condition))
+    print "Middle Number Index= "
+    print middle_number_index = (list.length / 2)
+    print " Middle Number Value= ", middle_number = list[middle_number_index]
+    binding.pry
+    left_number = divide_conquer_sort(list.take(middle_number_index), sort_condition)
+    right_number = divide_conquer_sort(list.drop(middle_number_index), sort_condition)
+    puts "About to merge", left_number, "and", right_number
+    left_array = []
+    right_array = []
+    left_array << left_number
+    right_array << right_number
+    return (merge(left_array, right_array, sort_condition))
   end
 end
 
