@@ -5,28 +5,32 @@
 #
 require "pry"
 
-list_of_nums = [4,5,6,7,8,9,10,120,5]
+list_of_nums = [4020,11,17,4,5,6,7,8,9,10,120,5]
 
-def merge(left, right, sort_condition)
+@result = []
+
+def merge(left_array, right_array, sort_condition)
 #Assumes left and right are already-sorted lists
 #Returns a new sorted list containing the same elements as (left + right) would contain
-  result = []
   i = 0
   j = 0
-  while i < left.length and j < right.length
-    if sort_condition(left[i].length, right[j].length)
-      result.append(left[i])
+  while i < left_array.length and j < right_array.length
+    if sort_condition.call(left_array[i], right_array[j])
+      @result.append(left_array[i])
       i += 1
     else
-      result.append(right[j])
+      @result.append(right_array[j])
       j += 1
-      while (j < right.length)
-        result.append(right[j])
-        j += 1
-      end
+    end
+    binding.pry
+    while (j < right_array.length)
+      @result.append(right_array[j])
+      j += 1
     end
   end
-  return result
+
+  puts "And now the result: #{@result}"
+  return @result
 end
 
 def divide_conquer_sort(list, sort_condition = lambda { |x,y| x < y })
@@ -37,14 +41,9 @@ def divide_conquer_sort(list, sort_condition = lambda { |x,y| x < y })
     print "Middle Number Index= "
     print middle_number_index = (list.length / 2)
     print " Middle Number Value= ", middle_number = list[middle_number_index]
-    binding.pry
-    left_number = divide_conquer_sort(list.take(middle_number_index), sort_condition)
-    right_number = divide_conquer_sort(list.drop(middle_number_index), sort_condition)
-    puts "About to merge", left_number, "and", right_number
-    left_array = []
-    right_array = []
-    left_array << left_number
-    right_array << right_number
+    left_array = divide_conquer_sort(list.take(middle_number_index), sort_condition)
+    right_array = divide_conquer_sort(list.drop(middle_number_index), sort_condition)
+    puts "About to merge", left_array, "and", right_array
     return (merge(left_array, right_array, sort_condition))
   end
 end
