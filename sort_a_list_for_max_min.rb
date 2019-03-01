@@ -5,45 +5,68 @@
 #
 require "pry"
 
-list_of_nums = [4020,11,17,4,5,6,7,8,9,10,120,5]
+list_of_nums =  [1,2,3,4,5,6,7,10,200,203,49,201,33,55,2,1]
 
-@result = []
 
-def merge(left_array, right_array, sort_condition)
+#MERGE it
 #Assumes left and right are already-sorted lists
 #Returns a new sorted list containing the same elements as (left + right) would contain
-  i = 0
-  j = 0
-  while i < left_array.length and j < right_array.length
-    if sort_condition.call(left_array[i], right_array[j])
-      @result.append(left_array[i])
-      i += 1
+def merge(left_array, right_array, sort_condition)
+  left_counter = 0
+  right_counter = 0
+  print "Initial result =", @merged_result = [], " "
+  print left_array, " "
+  print right_array, " "
+  #While (both) the left array length is greater than the left counter 
+  while (right_counter < right_array.length) and (left_counter < left_array.length)
+    #If 45 < 77, add 45 to new, sorted array
+    if sort_condition.call(left_array[left_counter], right_array[right_counter])
+      @merged_result.append(left_array[left_counter])
+      left_counter += 1
+      puts "adding left side to result: #{left_array[left_counter]}"
+      puts "counting up left_counter; it now = #{left_counter}"
+    #If 45 > 77, add 77 to new, sorted array
     else
-      @result.append(right_array[j])
-      j += 1
-    end
-    binding.pry
-    while (j < right_array.length)
-      @result.append(right_array[j])
-      j += 1
+      @merged_result.append(right_array[right_counter])
+      right_counter += 1
+      puts "adding right side to result: #{right_array[right_counter]}"
+      puts "counting up right_counter; it now = #{right_counter}"
     end
   end
+    while (right_counter < right_array.length)
+      #(i.e. there are REMAINING items in the LEFT array that need to be MERGED), and the right array is greater than the right counter (ditto for right array - remaining items to be merged. The counters tell you )
+    #If added the LEFT, make sure to add the RIGHT back in 
+      @merged_result.append(right_array[right_counter])
+      puts "adding right side in case added left already: #{right_array[right_counter]}"
+      right_counter += 1
+    end
 
-  puts "And now the result: #{@result}"
-  return @result
+    while (left_counter < left_array.length)
+      @merged_result.append(left_array[left_counter])
+      puts "adding left side in case added right already: #{left_array[left_counter]}"
+      left_counter += 1
+    end
+
+  puts "And now inside Merge - the result: #=> #{@merged_result}"
+  return @merged_result
 end
 
+#SORT it
 def divide_conquer_sort(list, sort_condition = lambda { |x,y| x < y })
   if list.length < 2
-    return list
+    puts "OK list is down to 1, moving to the next side. Shortened Array: "
     puts list
+    return list
   else
-    print "Middle Number Index= "
-    print middle_number_index = (list.length / 2)
-    print " Middle Number Value= ", middle_number = list[middle_number_index]
-    left_array = divide_conquer_sort(list.take(middle_number_index), sort_condition)
-    right_array = divide_conquer_sort(list.drop(middle_number_index), sort_condition)
-    puts "About to merge", left_array, "and", right_array
+    print "Middle Number Index = "
+    puts middle_number_index = (list.length / 2)
+    print " Middle Number Value = "
+    puts middle_number = list[middle_number_index]
+    puts "Now creating left array"
+    left_array = divide_conquer_sort(list.take(middle_number_index))
+    puts "Now creating right array"
+    right_array = divide_conquer_sort(list.drop(middle_number_index))
+    puts "In Divide + Conquer - About to merge", left_array, "and", right_array
     return (merge(left_array, right_array, sort_condition))
   end
 end
