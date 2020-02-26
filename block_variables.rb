@@ -31,7 +31,18 @@ class BlockVariables
       puts "Aint notin in Z"
     end
   end
+
+  def method_with_block_argument(a, b:, &block)
+    p a
+    p b
+    yield
+    puts r.inspect
+    # Yield is necessary here if you want to pass in a block, otherwise it won't know where to execute itself
+  end
 end
 
 #BlockVariables.block_local_variables
 BlockVariables.block_scope_demo
+bv = BlockVariables.new
+
+bv.method_with_block_argument(1, b: "hey") {puts "BAM"}
